@@ -206,6 +206,19 @@ client.on('message', message => {
     
 
 }
+
+});
+
+client.on("emojiCreate", function(emoji){
+        client.channels.fetch('764068934953336833')
+    .then((channel) => {
+        const nemoji = channel.guild.emojis.cache.get(`${emoji.id}`);
+        channel.send(`A new emoji was added: ${nemoji}`)});
+        
+     
+
+     
+
 });
 
 client.login(process.env.BOT_TOKEN);
