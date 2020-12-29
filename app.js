@@ -39,7 +39,7 @@ client.once('ready', () => {
 client.on('message', message => {
     if (message.author.bot) return ;
     if (message.content.startsWith(PREFIX)) { //starts with server prefix
-    
+ 
         const [CMD_NAME , ...args] = message.content.trim().substring(PREFIX.length).split(/\s+/);
         console.log(CMD_NAME) ;
         console.log(args);
@@ -58,6 +58,7 @@ client.on('message', message => {
 
 
         if (CMD_NAME == cmds.CMDs.date){
+        
         const exampleEmbed = new Discord.MessageEmbed()
         .setColor('#0099ff')
         .setTitle('Currently, its')
@@ -171,7 +172,7 @@ client.on('message', message => {
                  message.channel.send(exampleEmbed);
             }
                 ).catch((e)=>{console.log(e)});
-
+                
         return;
     }
         
@@ -220,6 +221,7 @@ client.on("emojiCreate", function(emoji){
      
 
 });
+
 
 client.login(process.env.BOT_TOKEN);
 console.log(cmds.CMDs);
