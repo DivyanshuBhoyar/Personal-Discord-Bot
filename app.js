@@ -140,17 +140,30 @@ client.on('message', message => {
             language: 'en-US' // required (you can use .languages call to get language)
             }).then((check)=>{
                 
-                console.log(check.language.code);                
-                console.log(check.matches[1].message);
-                console.log(check.matches[1].shortMessage);
+ //               console.log(check.language.code);                
+   //             console.log(check.matches[1].message);
+     //           console.log(check.matches[1].shortMessage);
                 var repl0 = []
-              
-                check.matches[1].replacements.forEach((subset) => {
-                    repl0.push(subset.value) ;
-                    
-                });
+				var msg = [] 
+				var smsg = []
+				
+				
+				for (i=0 ; i < check.matches.length; i++) {
+					
+                check.matches[i].replacements.forEach((subset) => {
+				repl0.push(subset.value) ; })
+                msg.push(check.matches[i].message);
+                if(check.matches[i].shortMessage !== ''){smsg.push(check.matches[i].shortMessage)};
+				}                 
                 
-                
+//				console.log(msg.length, smsg.length, repl0.length)
+                if(msg.length === 0) {
+				msg.push("-")}
+                if(smsg.length === 0) {
+				smsg.push("-")}
+				if(repl0.length === 0) {
+				repl0.push('-')}
+                console.log(msg, smsg)
                 const exampleEmbed = new Discord.MessageEmbed()
                     .setColor('#0099ff')
                     .setTitle('Grammar Check')
@@ -160,9 +173,9 @@ client.on('message', message => {
                     
                     .addFields(
                      
-                        { name: "Message" , value : `${check.matches[1].message}` },
-                        { name: "Grammar issue", value :`${check.matches[1].shortMessage}`,  inline: true },                        
-		                {name: "Possible replacements", value : `Replace ${repl0} ` }
+                        { name: "Message" , value : `${msg}` },
+                        { name: "Grammar issue", value :`${smsg}` },                        
+		                {name: "Possible replacements", value : `${repl0} ` }
                     )
                     
                     
