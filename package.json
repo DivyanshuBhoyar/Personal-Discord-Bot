@@ -1,0 +1,24 @@
+{
+  "name": "discord-senate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "grammarbot": "^1.0.3",
+    "language-grammar-api": "^1.1.6",
+    "mocha": "^8.2.1",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.32",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.8",
+    "nodemon": "^2.0.6",
+    "perfecttense": "^1.0.40"
+  }
+}
