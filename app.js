@@ -34,7 +34,10 @@ const PREFIX = "."
 
 client.once('ready', () => {
 	console.log('Ready!');
+	client.user.setActivity('KurtaPyjama Kala\n Kala Kala Kala')
 });
+
+ 
 
 client.on('message', message => {
     if (message.author.bot) return ;
