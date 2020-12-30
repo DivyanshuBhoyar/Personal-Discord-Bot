@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/DivyanshuBhoyar/Personal-Discord-Bot/blob/main/app.js"
   },
-  "homepage": "https://github.com/DivyanshuBhoyar/Personal-Discord-Bot/blob/main/app.js"
+  "homepage": "https://github.com/DivyanshuBhoyar/Personal-Discord-Bot/blob/main/app.js" ,
   "dependencies": {
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
