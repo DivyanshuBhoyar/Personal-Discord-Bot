@@ -123,7 +123,7 @@ client.on('message', message => {
             const text = args.join(" ");
             client.channels.cache.get(`${DATA.aID}`).send(`📢  **${text}.**  -by:${message.author} `)
 	    client.channels.cache.get("752810283449450496").send('📢  Announcement made. Visit \#783028912220274698 ')
-	    client.channels.cache.get("752810283449450496").send('📢  Announcement made. Visit \#783028912220274698 ')
+	    client.channels.cache.get("783075974996426782").send('📢  Announcement made. Visit \#783028912220274698 ')
 			
 })
         return;}
