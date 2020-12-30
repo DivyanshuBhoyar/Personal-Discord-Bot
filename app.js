@@ -96,7 +96,7 @@ client.on('message', message => {
                 console.log(e);
             }) ;
             ;
-        }
+       return; }
         
         
         
@@ -110,7 +110,7 @@ client.on('message', message => {
                 console.log(e);
                 }) ;
             ;
-        }
+        return;}
 
 
     
@@ -215,7 +215,7 @@ client.on('message', message => {
                 }
 
             })
-        }
+        return;}
 
     
 
@@ -232,7 +232,7 @@ client.on("emojiCreate", function(emoji){
      
 
      
-
+return;
 });
 
 
