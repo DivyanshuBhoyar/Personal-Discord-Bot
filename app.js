@@ -121,7 +121,7 @@ client.on('message', message => {
         if (CMD_NAME == cmds.CMDs.announce) {
             message.channel.send("Announcement made. Visit \#783028912220274698 ")
             const text = args.join(" ");
-            client.channels.cache.get(`${DATA.aID}`).send(`📢  **${text}.**  -by: `)
+            client.channels.cache.get(`${DATA.aID}`).send(`📢  **${text}.**  -by:${message.author} `)
 			
 })
         return;}
