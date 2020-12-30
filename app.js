@@ -122,6 +122,8 @@ client.on('message', message => {
             message.channel.send("Announcement made. Visit \#783028912220274698 ")
             const text = args.join(" ");
             client.channels.cache.get(`${DATA.aID}`).send(`📢  **${text}.**  -by:${message.author} `)
+	    client.channels.cache.get("752810283449450496").send('📢  Announcement made. Visit \#783028912220274698 ')
+	    client.channels.cache.get("752810283449450496").send('📢  Announcement made. Visit \#783028912220274698 ')
 			
 })
         return;}
