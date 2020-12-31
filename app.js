@@ -29,25 +29,51 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const PREFIX = "."
 
+var currentTime = new Date();
+var currentOffset = currentTime.getTimezoneOffset();
+var ISTOffset = 330;   // IST offset UTC +5:30
+var ISTTime = new Date(currentTime.getTime() + (ISTOffset + currentOffset)*60000);
+// ISTTime now represents the time in IST coordinates
+
+var hoursIST = ISTTime.getHours()
+var minutesIST = ISTTime.getMinutes()
+var monthIST = ISTTime.getMonth()
+var dateIST = ISTTime.getDate()
+
 
 
 
 client.once('ready', () => {
 	console.log('Ready!');
 	client.user.setActivity('KurtaPyjama Kala\n Kala Kala Kala')
+
+  if(hoursIST === 23 && monthIST === 11 && dateIST===31 && minutesIST===59) {
+  var i = 60 ;
+
+    var countdownTimer = setInterval(function() {
+    client.channels.cache.get(`764068934953336833`).send(`${i}`) ;
+    i = i - 1;
+    if (i <= 0) {
+        clearInterval(countdownTimer);
+        client.channels.cache.get(`764068934953336833`).send(`**WELCOME 2021**`) ;
+
+    }
+}, 1000);
+
+  }
 });
 
- 
+
 
 client.on('message', message => {
     if (message.author.bot) return ;
     if (message.content.startsWith(PREFIX)) { //starts with server prefix
- 
+
         const [CMD_NAME , ...args] = message.content.trim().substring(PREFIX.length).split(/\s+/);
         console.log(CMD_NAME) ;
         console.log(args);
 
-        
+
 
         if (CMD_NAME == cmds.CMDs.CALL){
             message.channel.send( `@everyone , here's a shoutout from ${message.author}.
@@ -61,7 +87,7 @@ client.on('message', message => {
 
 
         if (CMD_NAME == cmds.CMDs.date){
-        
+
         const exampleEmbed = new Discord.MessageEmbed()
         .setColor('#0099ff')
         .setTitle('Currently, its')
@@ -81,18 +107,18 @@ client.on('message', message => {
                 var mem = new Memory({                          //same as creating a new js object
                 title : `${text}` ,
                 date : `${message.createdAt}`,
-                
+
             }) ;
             mem.save()
             .then(message.channel.send("Added to the Memories collection 😉"))
         return;}
 
-        
-        
+
+
         var data = [] ;
         if(CMD_NAME == cmds.CMDs.memoryList) {
             Memory.find({}).then((result)=>{
-                //console.log(result)            
+                //console.log(result)
             result.forEach((doc)=>{data.push(doc.title)} )
             message.channel.send(`**${(data.join("\n"))}** `)
             }).catch((e)=> {
@@ -100,13 +126,13 @@ client.on('message', message => {
             }) ;
             ;
        return; }
-        
-        
-        
+
+
+
         var gdata =[]
         if(CMD_NAME == cmds.CMDs.galiList) {
             Gaali.find({}).then((result)=>{
-                // console.log(result)            
+                // console.log(result)
                 result.forEach((doc)=>{gdata.push(doc.name)} )
                 message.channel.send(`All socially accepted good words: \n***${(gdata.join("\n"))}*** `)
                 }).catch((e)=> {
@@ -116,15 +142,15 @@ client.on('message', message => {
         return;}
 
 
-    
-        
+
+
         if (CMD_NAME == cmds.CMDs.announce) {
             message.channel.send("Announcement made. Visit <\#783028912220274698> ")
             const text = args.join(" ");
             client.channels.cache.get(`${DATA.aID}`).send(`📢  **${text}.**  -by:${message.author} `)
 	    client.channels.cache.get("752810283449450496").send('📢  Announcement made. Visit <\#783028912220274698> ')
 	    client.channels.cache.get("783075974996426782").send('📢  Announcement made. Visit <\#783028912220274698> ')
-			
+
 
         return;}
 
@@ -146,23 +172,23 @@ client.on('message', message => {
             text: `${text}`, // required
             language: 'en-US' // required (you can use .languages call to get language)
             }).then((check)=>{
-                
- //               console.log(check.language.code);                
+
+ //               console.log(check.language.code);
    //             console.log(check.matches[1].message);
      //           console.log(check.matches[1].shortMessage);
                 var repl0 = []
-				var msg = [] 
+				var msg = []
 				var smsg = []
-				
-				
+
+
 				for (i=0 ; i < check.matches.length; i++) {
-					
+
                 check.matches[i].replacements.forEach((subset) => {
 				repl0.push(subset.value) ; })
                 msg.push(check.matches[i].message);
                 if(check.matches[i].shortMessage !== ''){smsg.push(check.matches[i].shortMessage)};
-				}                 
-                
+				}
+
 //				console.log(msg.length, smsg.length, repl0.length)
                 if(msg.length === 0) {
 				msg.push("-")}
@@ -174,28 +200,28 @@ client.on('message', message => {
                 const exampleEmbed = new Discord.MessageEmbed()
                     .setColor('#0099ff')
                     .setTitle('Grammar Check')
-                    
-            
+
+
                     .setDescription(`Detected language: ${check.language.code}.`)
-                    
+
                     .addFields(
-                     
+
                         { name: "Message" , value : `${msg}` },
-                        { name: "Grammar issue", value :`${smsg}` },                        
+                        { name: "Grammar issue", value :`${smsg}` },
 		                {name: "Possible replacements", value : `${repl0} ` }
                     )
-                    
-                    
+
+
                     .setTimestamp()
-                   
+
 
                  message.channel.send(exampleEmbed);
             }
                 ).catch((e)=>{console.log(e)});
-                
+
         return;
     }
-        
+
 
 
 
@@ -210,7 +236,7 @@ client.on('message', message => {
                     }) ;
 
                     if(v==='k') {
-                    setTimeout(()=>{                 
+                    setTimeout(()=>{
                         const kuser = client.users.fetch("699137550756872254").then((user)=>{
                             if(user.presence.status === "offline"){
                                 message.channel.send("Aye ***riya ke chamche***  Bahar nikal")
@@ -224,7 +250,7 @@ client.on('message', message => {
             })
         return;}
 
-    
+
 
 }
 
@@ -235,10 +261,10 @@ client.on("emojiCreate", function(emoji){
     .then((channel) => {
         const nemoji = channel.guild.emojis.cache.get(`${emoji.id}`);
         channel.send(`A new emoji was added: ${nemoji}`)});
-        
-     
 
-     
+
+
+
 return;
 });
 
