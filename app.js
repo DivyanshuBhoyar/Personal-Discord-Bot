@@ -54,8 +54,9 @@ client.once('ready', () => {
     client.channels.cache.get(`764068934953336833`).send(`${i}`) ;
     i = i - 1;
     if (i <= 0) {
+      client.channels.cache.get(`764068934953336833`).send("🎊🎆🎇🎊🎆🎇\n **WELCOME 2021**\n🥳🥂🙌🥳🥂🙌" ,{files: ["https://indianexpress.com/wp-content/uploads/2020/12/AUSTRALIA-1.jpg"]}) ;
+
         clearInterval(countdownTimer);
-        client.channels.cache.get(`764068934953336833`).send(`**WELCOME 2021**`) ;
 
     }
 }, 1000);
