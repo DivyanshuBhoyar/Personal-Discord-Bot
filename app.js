@@ -237,10 +237,12 @@ client.on('message', message => {
                     }) ;
 
                     if(v==='k') {
-                    setTimeout(()=>{
-                        const kuser = client.users.fetch("699137550756872254").then((user)=>{
+                        var response = DATA.kalass_lines[Math.floor(Math.random() * DATA.kalass_lines.length)] ;
+                        console.log(response);
+                        setTimeout(()=>{
+                        const kuser = client.users.fetch(DATA.membersMap.get(v)).then((user)=>{
                             if(user.presence.status === "offline"){
-                                message.channel.send(`Aye ***riya ke chamche***  Bahar nikal \n <@${DATA.membersMap.get(v)}>`)
+                                message.channel.send(`${response} \n <@${DATA.membersMap.get(v)}>`)
                             };
                         }).catch((e)=>{console.log(e)})
 
@@ -248,6 +250,78 @@ client.on('message', message => {
                 }
                     if(v==='x') {
                         var response = DATA.x_lines[Math.floor(Math.random() * DATA.x_lines.length)] ;
+                        console.log(response);
+                        setTimeout(()=>{
+                        const kuser = client.users.fetch(DATA.membersMap.get(v)).then((user)=>{
+                            if(user.presence.status === "offline"){
+                                message.channel.send(`${response} \n <@${DATA.membersMap.get(v)}>`)
+                            };
+                        }).catch((e)=>{console.log(e)})
+
+                    }, 300000)
+                }
+                if(v==='a') {
+                        var response = DATA.arjuna_lines[Math.floor(Math.random() * DATA.arjuna_lines.length)] ;
+                        console.log(response);
+                        setTimeout(()=>{
+                        const kuser = client.users.fetch(DATA.membersMap.get(v)).then((user)=>{
+                            if(user.presence.status === "offline"){
+                                message.channel.send(`${response} \n <@${DATA.membersMap.get(v)}>`)
+                            };
+                        }).catch((e)=>{console.log(e)})
+
+                    }, 300000)
+                }
+                if(v==='m') {
+                        var response = DATA.molly_lines[Math.floor(Math.random() * DATA.molly_lines.length)] ;
+                        console.log(response);
+                        setTimeout(()=>{
+                        const kuser = client.users.fetch(DATA.membersMap.get(v)).then((user)=>{
+                            if(user.presence.status === "offline"){
+                                message.channel.send(`${response} \n <@${DATA.membersMap.get(v)}>`)
+                            };
+                        }).catch((e)=>{console.log(e)})
+
+                    }, 300000)
+                }
+                if(v==='d') {
+                        var response = DATA.deepya_lines[Math.floor(Math.random() * DATA.deepya_lines.length)] ;
+                        console.log(response);
+                        setTimeout(()=>{
+                        const kuser = client.users.fetch(DATA.membersMap.get(v)).then((user)=>{
+                            if(user.presence.status === "offline"){
+                                message.channel.send(`${response} \n <@${DATA.membersMap.get(v)}>`)
+                            };
+                        }).catch((e)=>{console.log(e)})
+
+                    }, 300000)
+                }
+                if(v==='r') {
+                        var response = DATA.rohan_lines[Math.floor(Math.random() * DATA.rohan_lines.length)] ;
+                        console.log(response);
+                        setTimeout(()=>{
+                        const kuser = client.users.fetch(DATA.membersMap.get(v)).then((user)=>{
+                            if(user.presence.status === "offline"){
+                                message.channel.send(`${response} \n <@${DATA.membersMap.get(v)}>`)
+                            };
+                        }).catch((e)=>{console.log(e)})
+
+                    }, 300000)
+                }
+                if(v==='g') {
+                        var response = DATA.gunjan_lines[Math.floor(Math.random() * DATA.gunjan_lines.length)] ;
+                        console.log(response);
+                        setTimeout(()=>{
+                        const kuser = client.users.fetch(DATA.membersMap.get(v)).then((user)=>{
+                            if(user.presence.status === "offline"){
+                                message.channel.send(`${response} \n <@${DATA.membersMap.get(v)}>`)
+                            };
+                        }).catch((e)=>{console.log(e)})
+
+                    }, 300000)
+                }
+                if(v==='D') {
+                        var response = DATA.divyanshu_lines[Math.floor(Math.random() * DATA.divyanshu_lines.length)] ;
                         console.log(response);
                         setTimeout(()=>{
                         const kuser = client.users.fetch(DATA.membersMap.get(v)).then((user)=>{
