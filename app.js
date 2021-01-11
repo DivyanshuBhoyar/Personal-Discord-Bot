@@ -45,23 +45,23 @@ var dateIST = ISTTime.getDate()
 
 client.once('ready', () => {
 	console.log('Ready!');
-	client.user.setActivity('KurtaPyjama Kala\n Kala Kala Kala')
+	client.user.setActivity('DSA for HashCode')
 
-  if(hoursIST === 23 && monthIST === 11 && dateIST===31 && minutesIST===59) {
-  var i = 60 ;
+//   if(hoursIST === 23 && monthIST === 11 && dateIST===31 && minutesIST===59) {
+//   var i = 60 ;
 
-    var countdownTimer = setInterval(function() {
-    client.channels.cache.get(`764068934953336833`).send(`${i}`) ;
-    i = i - 1;
-    if (i <= 0) {
-      client.channels.cache.get(`764068934953336833`).send("🎊🎆🎇🎊🎆🎇\n **WELCOME 2021**\n🥳🥂🙌🥳🥂🙌" ,{files: ["https://indianexpress.com/wp-content/uploads/2020/12/AUSTRALIA-1.jpg"]}) ;
+//     var countdownTimer = setInterval(function() {
+//     client.channels.cache.get(`764068934953336833`).send(`${i}`) ;
+//     i = i - 1;
+//     if (i <= 0) {
+//       client.channels.cache.get(`764068934953336833`).send("🎊🎆🎇🎊🎆🎇\n **WELCOME 2021**\n🥳🥂🙌🥳🥂🙌" ,{files: ["https://indianexpress.com/wp-content/uploads/2020/12/AUSTRALIA-1.jpg"]}) ;
 
-        clearInterval(countdownTimer);
+//         clearInterval(countdownTimer);
 
-    }
-}, 1000);
+//     }
+// }, 1000);
 
-  }
+//   }
 });
 
 
@@ -162,7 +162,7 @@ client.on('message', message => {
         const gli = new Gaali({
             name : `${text}`
         })
-        gli.save().then(message.channel.send("😂😂 Added to the collection. Use whole-heartedly 🙃")).catch((e)=> console.log(e))
+        gli.save().then(message.channel.send("☠ Added to the collection. Use whole-heartedly 🙃")).catch((e)=> console.log(e))
         return;}
 
 
@@ -233,19 +233,32 @@ client.on('message', message => {
                     console.log(typeof(DATA.membersMap.get(v)));
                     const u = client.users.fetch(DATA.membersMap.get(v))
                     u.then((u) => {
-                        u.send(`You are being called at ${message.channel}`).catch((e)=> console.log(e))
+                        u.send(`You are being called at ${message.channel} \n <@${DATA.membersMap.get(v)}>`).catch((e)=> console.log(e))
                     }) ;
 
                     if(v==='k') {
                     setTimeout(()=>{
                         const kuser = client.users.fetch("699137550756872254").then((user)=>{
                             if(user.presence.status === "offline"){
-                                message.channel.send("Aye ***riya ke chamche***  Bahar nikal")
+                                message.channel.send(`Aye ***riya ke chamche***  Bahar nikal \n <@${DATA.membersMap.get(v)}>`)
                             };
                         }).catch((e)=>{console.log(e)})
 
                     }, 300000)
                 }
+                    if(v==='x') {
+                        var response = DATA.x_lines[Math.floor(Math.random() * DATA.x_lines.length)] ;
+                        console.log(response);
+                        setTimeout(()=>{
+                        const kuser = client.users.fetch(DATA.membersMap.get(v)).then((user)=>{
+                            if(user.presence.status === "offline"){
+                                message.channel.send(`${response} \n <@${DATA.membersMap.get(v)}>`)
+                            };
+                        }).catch((e)=>{console.log(e)})
+
+                    }, 300000)
+                }
+                
                 }
 
             })
