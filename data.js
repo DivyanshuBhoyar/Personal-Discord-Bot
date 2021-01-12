@@ -53,7 +53,8 @@ const molly_lines = [
 
 const gunjan_lines = [
 "Mumbai ke dard me jhad ke patte todkar so toh nahi gya 🥴 ??",
-"Chakke",
+"Chakke", 
+"Aise chipa hai jaise kalash se maar khaaya ho" ,
 "Chasmha 👓 pehen ke aana" ,
 "Show up soon with your _BLUETOOTH_ headsets" ,
 "Should we ***judge you*** careless ?",
