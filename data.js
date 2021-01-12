@@ -26,7 +26,7 @@ const arjuna_lines = [
 "Email karne me busy hai Rashi ko 😏😏 ?",
 "On Netflix??",
 "Dagwal Sir ke ghar toh nahi gaya ?",
-"Know the **T&C** of being in this server",
+"Seems to have attained _ETERNAL_ PEACE",
 "Oye Instagram Influencer kidhar chupa hai ?",
 "Aap toh _khaali peeli_ hua karte hai na 😮😮?",
 "Ho gaya iska **DTNR* shuru 👨‍💻👩‍💻*"
