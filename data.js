@@ -28,7 +28,8 @@ const arjuna_lines = [
 "Dagwal Sir ke ghar toh nahi gaya ?",
 "Know the **T&C** of being in this server",
 "Oye Instagram Influencer kidhar chupa hai ?",
-"Aap toh _khaali peeli_ hua karte hai na 😮😮?"
+"Aap toh _khaali peeli_ hua karte hai na 😮😮?",
+"Ho gaya iska **DTNR* shuru 👨‍💻👩‍💻*"
 ]
 
 const deepya_lines = [
@@ -66,7 +67,7 @@ const rohan_lines = [
 
 const divyanshu_lines = [
 "Jaldi aa; and apna _bahana_ udhar hi chhodke aana 🎭",
-"pasar gaya kya ?",
+"Pasar gaya kya ?",
 "Nahana khana hote rahega, pehle idhar aa"]
 
 const x_l = [
