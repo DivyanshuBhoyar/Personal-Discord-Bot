@@ -45,7 +45,7 @@ var dateIST = ISTTime.getDate()
 
 client.once('ready', () => {
 	console.log('Ready!');
-	client.user.setActivity('DSA for HashCode')
+	client.user.setActivity('Alone. 😶😶')
 
 //   if(hoursIST === 23 && monthIST === 11 && dateIST===31 && minutesIST===59) {
 //   var i = 60 ;
