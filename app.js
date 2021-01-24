@@ -29,23 +29,41 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const PREFIX = "."
 
-var currentTime = new Date();
-var currentOffset = currentTime.getTimezoneOffset();
-var ISTOffset = 330;   // IST offset UTC +5:30
-var ISTTime = new Date(currentTime.getTime() + (ISTOffset + currentOffset)*60000);
-// ISTTime now represents the time in IST coordinates
+let schedule = require('node-schedule');
+const { default: axios } = require('axios');
+let rule = new schedule.RecurrenceRule();
+// your timezone
+rule.tz = 'Asia/Kolkata';
+// runs at 15:00:00
+rule.second = 00;
+rule.minute = 00;
+rule.hour = 08;
+// schedule
+schedule.scheduleJob(rule, async function () {
+  console.log('Hello World!');
+  try {
+      const {data} = await axios.get('https://zenquotes.io/api/today')
+      console.log(data[0].q);
+      const exampleEmbed = new Discord.MessageEmbed()
+        .setColor('#f5ed00')
+        .setTitle(data[0].q)	
+        .setTimestamp()
+        .setFooter('Thought of the day');
+        client.channels.fetch('792301782507585539')
+        .then((channel) => {
+            channel.send(exampleEmbed)});
+  } catch (error) {
+      console.log(error)
+  }
 
-var hoursIST = ISTTime.getHours()
-var minutesIST = ISTTime.getMinutes()
-var monthIST = ISTTime.getMonth()
-var dateIST = ISTTime.getDate()
+});
 
 
 
 
 client.once('ready', () => {
 	console.log('Ready!');
-	client.user.setActivity('Alone. 😶😶')
+	client.user.setActivity('Under Maintainance')
 
 //   if(hoursIST === 23 && monthIST === 11 && dateIST===31 && minutesIST===59) {
 //   var i = 60 ;
@@ -66,13 +84,16 @@ client.once('ready', () => {
 
 
 
+
 client.on('message', message => {
     if (message.author.bot) return ;
     if (message.content.startsWith(PREFIX)) { //starts with server prefix
 
         const [CMD_NAME , ...args] = message.content.trim().substring(PREFIX.length).split(/\s+/);
         console.log(CMD_NAME) ;
+       
         console.log(args);
+        
 
 
 
@@ -343,6 +364,8 @@ client.on('message', message => {
 }
 
 });
+
+
 
 client.on("emojiCreate", function(emoji){
         client.channels.fetch('764068934953336833')
