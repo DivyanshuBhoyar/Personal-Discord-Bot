@@ -106,6 +106,37 @@ client.on('message', message => {
         return ;
         }
 
+            if (CMD_NAME == cmds.CMDs.weather){
+            message.channel.send("http://www.7timer.info/bin/astro.php?lon=21.14&lat=79.08&ac=0&lang=en&unit=metric&output=internal&tzshift=0")
+        return ;
+        }
+
+
+        if (CMD_NAME == cmds.CMDs.joke){
+           
+                const res =  axios.get("https://v2.jokeapi.dev/joke/Programming,Dark?type=single").then( (data) => {
+                   
+                    message.channel.send( data.data.joke)
+                }
+                ).catch((e)=> {console.log(e)})
+            
+
+        return ;
+        }
+                if (CMD_NAME == cmds.CMDs.insult){
+                    
+                    if(args[0]) {
+                    const res =  axios.get("https://evilinsult.com/generate_insult.php?lang=en&type=json").then( (data) => {
+                                        
+                            
+                    message.channel.send( `${data.data.insult} ${args[0]}`)
+                }
+                ).catch((e)=> {console.log(e)})
+            }else message.reply("Need a target")
+
+        return ;
+        }
+
 
 
         if (CMD_NAME == cmds.CMDs.date){

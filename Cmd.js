@@ -7,7 +7,10 @@ gaali : "g",
 memory : "m",
 memoryList : "mls",
 galiList : "gls",
-grammar : "G"
+grammar : "G",
+joke : "j",
+insult : "i",
+weather : "w"
 }
 
 module.exports.CMDs =CMDs ;
