@@ -96,7 +96,7 @@ client.on('message', message => {
         
 
      if(CMD_NAME === "ping"){
-        message.channel.send(`🚀 Latency  ${Date.now() - message.createdTimestamp}ms. 📡 API Latency is ${Math.round(client.ws.ping)}ms`);
+        message.channel.send(`🚀 Latency  ${Date.now() - message.createdTimestamp}ms. 📡 API Latency  ${Math.round(client.ws.ping)}ms`);
         return
      }
 
