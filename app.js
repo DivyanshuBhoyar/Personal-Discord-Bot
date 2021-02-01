@@ -95,7 +95,10 @@ client.on('message', message => {
         console.log(args);
         
 
-
+     if(CMD_NAME === "ping"){
+        message.channel.send(`🚀 Latency  ${Date.now() - message.createdTimestamp}ms. 📡 API Latency is ${Math.round(client.ws.ping)}ms`);
+        return
+     }
 
         if (CMD_NAME == cmds.CMDs.CALL){
             message.channel.send( `@everyone , here's a shoutout from ${message.author}.
