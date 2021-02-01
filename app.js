@@ -117,7 +117,7 @@ client.on('message', message => {
 
         if (CMD_NAME == cmds.CMDs.joke){
            
-                const res =  axios.get("https://v2.jokeapi.dev/joke/Programming,Dark?type=single").then( (data) => {
+                const res =  axios.get("https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Dark,Pun,Spooky?type=single").then( (data) => {
                    
                     message.channel.send( data.data.joke)
                 }
