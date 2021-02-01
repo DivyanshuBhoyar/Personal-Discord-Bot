@@ -63,7 +63,7 @@ schedule.scheduleJob(rule, async function () {
 
 client.once('ready', () => {
 	console.log('Ready!');
-	client.user.setActivity('Under Maintainance')
+	client.user.setActivity('Back Guys')
 
 //   if(hoursIST === 23 && monthIST === 11 && dateIST===31 && minutesIST===59) {
 //   var i = 60 ;
