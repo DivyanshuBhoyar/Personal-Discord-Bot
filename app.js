@@ -49,7 +49,7 @@ schedule.scheduleJob(rule, async function () {
         .setTitle(data[0].q)	
         .setTimestamp()
         .setFooter('Thought of the day');
-        client.channels.fetch('792301782507585539')
+        client.channels.fetch('764068934953336833')
         .then((channel) => {
             channel.send(exampleEmbed)});
   } catch (error) {
@@ -57,6 +57,7 @@ schedule.scheduleJob(rule, async function () {
   }
 
 });
+ 
 
 
 
@@ -65,21 +66,6 @@ client.once('ready', () => {
 	console.log('Ready!');
 	client.user.setActivity('at 0.01%')
 
-//   if(hoursIST === 23 && monthIST === 11 && dateIST===31 && minutesIST===59) {
-//   var i = 60 ;
-
-//     var countdownTimer = setInterval(function() {
-//     client.channels.cache.get(`764068934953336833`).send(`${i}`) ;
-//     i = i - 1;
-//     if (i <= 0) {
-//       client.channels.cache.get(`764068934953336833`).send("🎊🎆🎇🎊🎆🎇\n **WELCOME 2021**\n🥳🥂🙌🥳🥂🙌" ,{files: ["https://indianexpress.com/wp-content/uploads/2020/12/AUSTRALIA-1.jpg"]}) ;
-
-//         clearInterval(countdownTimer);
-
-//     }
-// }, 1000);
-
-//   }
 });
 
 
