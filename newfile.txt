@@ -1,0 +1,62 @@
+{"animated":true,"name":"drum","id":"806780857544474635","deleted":false,"guildID":"699136773795610724","requireColons":null,"managed":false,"available":true,"requiresColons":true,"author":null,"createdTimestamp":1612421945702,"url":"https://cdn.discordapp.com/emojis/806780857544474635.gif","identifier":"a:drum:806780857544474635"}
+
+GuildEmoji {                                                                                                                                               
+  animated: false,                                                                                                                                         
+  name: '1f601',                                                                                                                                           
+  id: '806780817832935435',                                                                                                                                
+                                                                                                                                                       
+GuildEmoji {                                                                                                                                               
+  animated: false,                                                                                                                                         
+  name: 'grinningfacewithsweat',                                                                                                                           
+  id: '806780818008834098',                                                                                                                                
+                                                                                                                                                
+GuildEmoji {                                                                                                                                               
+  animated: false,                                                                                                                                         
+  name: 'callmeface',                                                                                                                                      
+  id: '806780818247647252',                                                                                                                                
+                                                                                                                                              
+GuildEmoji {                                                                                                                                               
+  animated: false,                                                                                                                                         
+  name: 'rollingonthefloorlaughing',                                                                                                                       
+  id: '806780819863633960',                                                                                                                                
+                                                                                                                                                 
+GuildEmoji {                                                                                                                                               
+  animated: true,                                                                                                                                          
+  name: 'person_running',                                                                                                                                  
+  id: '806780836665622539',                                                                                                                                
+                                                                                                                                                  
+GuildEmoji {                                                                                                                                               
+  animated: true,                                                                                                                                          
+  name: 'middle_finger',                                                                                                                                   
+  id: '806780840444952626',                                                                                                                                
+                                                                                                                                                 
+GuildEmoji {                                                                                                                                               
+  animated: true,                                                                                                                                          
+  name: 'man_dancing',                                                                                                                                     
+  id: '806780854536896513',                                                                                                                                
+                                                                                                                                                    
+GuildEmoji {                                                                                                                                               
+  animated: true,                                                                                                                                          
+  name: 'man_facepalming',                                                                                                                                 
+  id: '806780856147509309',                                                                                                                                
+                                                                                                                                                    
+GuildEmoji {                                                                                                                                               
+  animated: true,                                                                                                                                          
+  name: 'fire',                                                                                                                                            
+  id: '806780856227594261',                                                                                                                                
+                                                                                                                                                 
+GuildEmoji {                                                                                                                                               
+  animated: true,                                                                                                                                          
+  name: 'penguin',                                                                                                                                         
+  id: '806780856362467368',                                                                                                                                
+                                                                                                                                                          
+GuildEmoji {                                                                                                                                               
+  animated: true,                                                                                                                                          
+  name: 'money_mouth_face',                                                                                                                                
+  id: '806780856445435934',                                                                                                                                
+                                                                                                                                                     
+GuildEmoji {                                                                                                                                               
+  animated: true,                                                                                                                                          
+  name: 'drum',                                                                                                                                            
+  id: '806780857544474635',                                                                                                                                
+  
