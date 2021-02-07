@@ -57,7 +57,7 @@ schedule.scheduleJob(rule, async function () {
       channel.send(exampleEmbed);
     });
     // { quote: 'Hope is but the dream of those wake.' }
-  }).catch(e) {
+  })catch(e) {
     console.log(e)
   }
 
