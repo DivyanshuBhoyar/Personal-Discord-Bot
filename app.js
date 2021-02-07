@@ -1,5 +1,5 @@
 require("dotenv").config();
-const fsLibrary  = require('fs') 
+const fsLibrary = require('fs')
 const mongoose = require("mongoose");
 mongoose.connect(
   `mongodb://hatwaarbeta:${process.env.DB_PASSWORD}@devcluster0-shard-00-00.hdvnq.mongodb.net:27017,devcluster0-shard-00-01.hdvnq.mongodb.net:27017,devcluster0-shard-00-02.hdvnq.mongodb.net:27017/senate-data?ssl=true&replicaSet=atlas-rsjh27-shard-0&authSource=admin&retryWrites=true&w=majority`,
@@ -28,13 +28,13 @@ const moment = require("moment-timezone");
 const DATA = require("./data");
 const Memory = require("./memories"); //import collection model
 const Gaali = require("./gmodel");
-
+const kote = require("kote-api")
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const PREFIX = ".";
-
-let schedule = require("node-schedule");
 const { default: axios } = require("axios");
+const schedule = require("node-schedule");
+
 let rule = new schedule.RecurrenceRule();
 // your timezone
 rule.tz = "Asia/Kolkata";
@@ -45,21 +45,24 @@ rule.hour = 08;
 // schedule
 schedule.scheduleJob(rule, async function () {
   console.log("Hello World!");
-  try {
-    const { data } = await axios.get("https://zenquotes.io/api/today");
-    console.log(data[0].q);
+
+  kote.brainyQuote().then(quote => {
+    console.log(quote);
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#f5ed00")
-      .setTitle(data[0].q)
+      .setTitle(quote)
       .setTimestamp()
       .setFooter("Thought of the day");
     client.channels.fetch("764068934953336833").then((channel) => {
       channel.send(exampleEmbed);
     });
-  } catch (error) {
-    console.log(error);
+    // { quote: 'Hope is but the dream of those wake.' }
+  }).catch(e) {
+    console.log(e)
   }
+
 });
+
 
 var newEmojis = [];
 
@@ -83,8 +86,7 @@ client.on("message", (message) => {
 
     if (CMD_NAME === "ping") {
       message.channel.send(
-        `📡 Latency  ${
-          Date.now() - message.createdTimestamp
+        `📡 Latency  ${Date.now() - message.createdTimestamp
         }ms. 🚀 API Latency  ${Math.round(client.ws.ping)}ms`
       );
       message.channel.send(
@@ -317,8 +319,7 @@ client.on("message", (message) => {
           const u = client.users.fetch(DATA.membersMap.get(v));
           u.then((u) => {
             u.send(
-              `You are being called at ${
-                message.channel
+              `You are being called at ${message.channel
               } \n <@${DATA.membersMap.get(v)}>`
             ).catch((e) => console.log(e));
           });
@@ -326,7 +327,7 @@ client.on("message", (message) => {
           if (v === "k") {
             var response =
               DATA.kalass_lines[
-                Math.floor(Math.random() * DATA.kalass_lines.length)
+              Math.floor(Math.random() * DATA.kalass_lines.length)
               ];
             console.log(response);
             setTimeout(() => {
@@ -366,7 +367,7 @@ client.on("message", (message) => {
           if (v === "a") {
             var response =
               DATA.arjuna_lines[
-                Math.floor(Math.random() * DATA.arjuna_lines.length)
+              Math.floor(Math.random() * DATA.arjuna_lines.length)
               ];
             console.log(response);
             setTimeout(() => {
@@ -387,7 +388,7 @@ client.on("message", (message) => {
           if (v === "m") {
             var response =
               DATA.molly_lines[
-                Math.floor(Math.random() * DATA.molly_lines.length)
+              Math.floor(Math.random() * DATA.molly_lines.length)
               ];
             console.log(response);
             setTimeout(() => {
@@ -408,7 +409,7 @@ client.on("message", (message) => {
           if (v === "d") {
             var response =
               DATA.deepya_lines[
-                Math.floor(Math.random() * DATA.deepya_lines.length)
+              Math.floor(Math.random() * DATA.deepya_lines.length)
               ];
             console.log(response);
             setTimeout(() => {
@@ -429,7 +430,7 @@ client.on("message", (message) => {
           if (v === "r") {
             var response =
               DATA.rohan_lines[
-                Math.floor(Math.random() * DATA.rohan_lines.length)
+              Math.floor(Math.random() * DATA.rohan_lines.length)
               ];
             console.log(response);
             setTimeout(() => {
@@ -450,7 +451,7 @@ client.on("message", (message) => {
           if (v === "g") {
             var response =
               DATA.gunjan_lines[
-                Math.floor(Math.random() * DATA.gunjan_lines.length)
+              Math.floor(Math.random() * DATA.gunjan_lines.length)
               ];
             console.log(response);
             setTimeout(() => {
@@ -471,7 +472,7 @@ client.on("message", (message) => {
           if (v === "D") {
             var response =
               DATA.divyanshu_lines[
-                Math.floor(Math.random() * DATA.divyanshu_lines.length)
+              Math.floor(Math.random() * DATA.divyanshu_lines.length)
               ];
             console.log(response);
             setTimeout(() => {
@@ -500,15 +501,15 @@ client.on("emojiCreate", function (emoji) {
   client.channels.fetch("764068934953336833").then((channel) => {
     const nemoji = channel.guild.emojis.cache.get(`${emoji.id}`);
     channel.send(`A new emoji was added: ${nemoji}`);
-      newEmojis.push(nemoji)
-  console.log(nemoji)
-  var writeData = JSON.stringify(nemoji) ;
-  // Write data in 'newfile.txt' . 
-fsLibrary.writeFile('newfile.txt', writeData, (error) => { 
-      
-    // In case of a error throw err exception. 
-    if (error) throw err; 
-})
+    newEmojis.push(nemoji)
+    console.log(nemoji)
+    var writeData = JSON.stringify(nemoji);
+    // Write data in 'newfile.txt' . 
+    fsLibrary.writeFile('newfile.txt', writeData, (error) => {
+
+      // In case of a error throw err exception. 
+      if (error) throw err;
+    })
 
   });
 
