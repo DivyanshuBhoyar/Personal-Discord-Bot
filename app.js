@@ -50,7 +50,7 @@ schedule.scheduleJob(rule, async function () {
     console.log(quote);
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#f5ed00")
-      .setTitle(quote)
+      .setTitle(quote.quote)
       .setTimestamp()
       .setFooter("Thought of the day");
     client.channels.fetch("764068934953336833").then((channel) => {
