@@ -84,4 +84,5 @@ module.exports.deepya_lines = deepya_lines;
 module.exports.molly_lines = molly_lines ;
 module.exports.gunjan_lines = gunjan_lines ;
 module.exports.rohan_lines = rohan_lines ;
+module.exports.divyanshu_lines = divyanshu_lines ;
 module.exports.x_lines = x_l ;
