@@ -81,18 +81,6 @@ client.on("message", (message) => {
     console.log(CMD_NAME);
 
     console.log(args);
-var loop ;
-    if (CMD_NAME === "initLoop") {
-      message.channel.send("recieved request")
-     var loop = setInterval(function(){
-         message.channel.send("<@699137550756872254> Compulsory Hashcode meeting at 1300").catch((e) => console.log(e))
- 
-      }, 1800000)
-    }
-
-    if (CMD_NAME === "stopLoop") {
-      clearInterval(loop)
-    }
 
     if (CMD_NAME === "ping") {
       message.channel.send(
