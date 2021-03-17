@@ -11,7 +11,6 @@ const cmds = require("./Cmd");
 const DATA = require("./data");
 const Memory = require("./memories"); //import collection model
 const Gaali = require("./gmodel");
-const kote = require("kote-api");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const PREFIX = ".";
