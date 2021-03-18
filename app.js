@@ -39,15 +39,15 @@ const languageToolClient = new LanguageToolApi(options);
 let rule = new schedule.RecurrenceRule();
 rule.tz = "Asia/Kolkata";
 rule.second = 00;
-rule.minute = 05;
+rule.minute = 16;
 rule.hour = 09;
 // schedule
 schedule.scheduleJob(rule, async function () {
   console.log("Hello World!");
-  const quote = scraper("https://www.brainyquote.com/quote_of_the_day");
+  const quote = await scraper("https://www.brainyquote.com/quote_of_the_day");
   client.channels.fetch("764068934953336833").then((channel) => {
     channel.send(quote);
-  });
+  }).catch((e) => console.log(e));
 });
 
 var newEmojis = [];
