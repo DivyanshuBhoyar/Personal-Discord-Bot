@@ -10,7 +10,8 @@ galiList : "gls",
 grammar : "G",
 joke : "j",
 insult : "i",
-weather : "w"
+smsNotif : "c--force",
+weather : "w",
 }
 
 module.exports.CMDs =CMDs ;

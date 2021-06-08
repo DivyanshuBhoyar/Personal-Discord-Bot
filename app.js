@@ -1,20 +1,23 @@
 require("dotenv").config();
 
-const scraper = require("./scraper");
 const fsLibrary = require("fs");
 const mongoose = require("mongoose");
 const LanguageToolApi = require("language-grammar-api");
 const schedule = require("node-schedule");
 const moment = require("moment-timezone");
+const Discord = require("discord.js");
+const client = new Discord.Client();
+const { default: axios } = require("axios");
+const kote = require("kote-api")
 
 const cmds = require("./Cmd");
 const DATA = require("./data");
 const Memory = require("./memories"); //import collection model
 const Gaali = require("./gmodel");
-const Discord = require("discord.js");
-const client = new Discord.Client();
+const news = require("./news")
+const send_sms = require("./send-sms")
+
 const PREFIX = ".";
-const { default: axios } = require("axios");
 
 mongoose.connect(
   `mongodb://hatwaarbeta:${process.env.DB_PASSWORD}@devcluster0-shard-00-00.hdvnq.mongodb.net:27017,devcluster0-shard-00-01.hdvnq.mongodb.net:27017,devcluster0-shard-00-02.hdvnq.mongodb.net:27017/senate-data?ssl=true&replicaSet=atlas-rsjh27-shard-0&authSource=admin&retryWrites=true&w=majority`,
@@ -42,19 +45,21 @@ rule.second = 00;
 rule.minute = 16;
 rule.hour = 09;
 // schedule
-schedule.scheduleJob(rule, async function () {
-  console.log("Hello World!");
-  const quote = await scraper("https://www.brainyquote.com/quote_of_the_day");
-  client.channels.fetch("764068934953336833").then((channel) => {
-    channel.send(quote);
-  }).catch((e) => console.log(e));
-});
+schedule.scheduleJob(rule, sendQuotes )
+
+
+let newsRule = new schedule.RecurrenceRule();
+newsRule.tz = "Asia/Kolkata";
+newsRule.second = 00;
+newsRule.minute = 04;
+newsRule.hour = 11;
+schedule.scheduleJob(newsRule, sendEmbeds)
 
 var newEmojis = [];
 
-client.once("ready", () => {
+client.once("ready", async() => {
   console.log("Ready!");
-  client.user.setActivity("at 0.01%");
+  client.user.setActivity("Sannatey")
 });
 
 client.on("message", (message) => {
@@ -66,8 +71,8 @@ client.on("message", (message) => {
       .trim()
       .substring(PREFIX.length)
       .split(/\s+/);
-    console.log(CMD_NAME);
 
+    console.log(CMD_NAME);
     console.log(args);
 
     if (CMD_NAME === "ping") {
@@ -480,6 +485,10 @@ client.on("message", (message) => {
       });
       return;
     }
+    if (CMD_NAME === cmds.CMDs.smsNotif ) {
+     if (args.length === 0 ) message.channel.reply("kise ? ")
+      send_sms(args[0])
+    }
   }
 });
 
@@ -498,7 +507,31 @@ client.on("emojiCreate", function (emoji) {
   });
 
   return;
-});
 
+});
 client.login(process.env.BOT_TOKEN);
-console.log(cmds.CMDs);
+console.log(cmds.CMDs)
+
+async function sendEmbeds() {
+  try {
+    let embeds = await news()
+    client.channels.fetch("840442762834870292").then(channel => embeds.forEach(embed => channel.send(embed)) )
+  }
+  catch (e) {
+    console.log(e);
+  }
+}
+async function sendQuotes() {
+  kote.brainyQuote().then(quote => {
+    console.log(quote);
+    const exampleEmbed = new Discord.MessageEmbed()
+      .setColor("#f5ed00")
+      .setTitle(quote.quote)
+      .setTimestamp()
+      .setFooter("Thought of the day");
+    client.channels.fetch("764068934953336833").then((channel) => {
+      channel.send(exampleEmbed);
+    });
+    // { quote: 'Hope is but the dream of those wake.' }
+  })
+}

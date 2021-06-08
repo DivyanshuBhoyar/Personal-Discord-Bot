@@ -10,6 +10,16 @@ membersMap.set("D", "698153047309942935")
 
 const announcementID = "783028912220274698"
 
+
+const cell_numbers = new Map() 
+cell_numbers.set("D", "+917038739749")
+cell_numbers.set("a", "+917620575462")
+cell_numbers.set("d", "+917264993075")
+cell_numbers.set("k", "+919156494255")
+cell_numbers.set("m", "+919420410910")
+cell_numbers.set("g", "+917447449288")
+cell_numbers.set("r", "+917499921103")
+
 const kalass_lines = [
 "Aye ***Riya ke chamche*** Bahar nikal",
 "Tu aata ya _Bhootni_ ko bulaye ?",
@@ -41,8 +51,7 @@ const deepya_lines = [
 "We need to **CALL** such people to show up"] 
 
 const molly_lines = [
-"Molly aaja, IIT Khapari k teachers ko roast karege",
-"So bhi gaya itne jaldi ?" ,
+"aaja molly, IIT Khapari k teachers ko roast karege",
 "Other animals of the jungle looking for a Panda 🐼" ,
 "**Dhoka-dayak** molly",
 "Natkhat molly status offline karke toh nahi chipa 😶? ",
@@ -77,6 +86,7 @@ const x_l = [
 "Nahana khana hote rahega, pehle idhar aa"]
 
 module.exports.membersMap = membersMap ;
+module.exports.cell_numbers = cell_numbers ;
 module.exports.aID = announcementID ;
 module.exports.kalass_lines = kalass_lines ;
 module.exports.arjuna_lines = arjuna_lines;
