@@ -514,13 +514,19 @@ console.log(cmds.CMDs)
 
 async function sendEmbeds() {
   try {
-    let embeds = await news()
-    client.channels.fetch("840442762834870292").then(channel => embeds.forEach(embed => channel.send(embed)) )
+    // let embeds = await news()
+    const deepo_embeds = [new Discord.MessageEmbed()
+    .setColor("#f5ed00")
+    .setTitle("BC Deepya NEWS DAAL")
+    .setTimestamp()
+    .setFooter("Aisa kaise chalega lord")]
+    client.channels.fetch("840442762834870292").then(channel => deepo_embeds.forEach(embed => channel.send(embed)) )
   }
   catch (e) {
     console.log(e);
   }
 }
+
 async function sendQuotes() {
   kote.brainyQuote().then(quote => {
     console.log(quote);
