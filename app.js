@@ -48,12 +48,12 @@ rule.hour = 09;
 schedule.scheduleJob(rule, sendQuotes )
 
 
-let newsRule = new schedule.RecurrenceRule();
-newsRule.tz = "Asia/Kolkata";
-newsRule.second = 00;
-newsRule.minute = 04;
-newsRule.hour = 11;
-schedule.scheduleJob(newsRule, sendEmbeds)
+// let newsRule = new schedule.RecurrenceRule();
+// newsRule.tz = "Asia/Kolkata";
+// newsRule.second = 00;
+// newsRule.minute = 04;
+// newsRule.hour = 11;
+// schedule.scheduleJob(newsRule, sendEmbeds)
 
 var newEmojis = [];
 
