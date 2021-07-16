@@ -8,7 +8,6 @@ const moment = require("moment-timezone");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const { default: axios } = require("axios");
-const kote = require("kote-api")
 
 const cmds = require("./Cmd");
 const DATA = require("./data");
@@ -42,8 +41,8 @@ const languageToolClient = new LanguageToolApi(options);
 let rule = new schedule.RecurrenceRule();
 rule.tz = "Asia/Kolkata";
 rule.second = 00;
-rule.minute = 16;
-rule.hour = 09;
+rule.minute = 17;
+rule.hour = 10;
 // schedule
 schedule.scheduleJob(rule, sendQuotes )
 
@@ -528,16 +527,18 @@ async function sendEmbeds() {
 }
 
 async function sendQuotes() {
-  kote.brainyQuote().then(quote => {
-    console.log(quote);
+
+  axios.get("https://zenquotes.io/api/today").then(response => {
+    let quote = response.data[0]
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#f5ed00")
-      .setTitle(quote.quote)
-      .setTimestamp()
-      .setFooter("Thought of the day");
-    client.channels.fetch("764068934953336833").then((channel) => {
+      .setTitle(quote["q"])
+      .setFooter(`${quote["a"]}`);
+    client.channels.fetch("792301782507585540").then((channel) => {
       channel.send(exampleEmbed);
     });
     // { quote: 'Hope is but the dream of those wake.' }
   })
 }
+//
+//764068934953336833
