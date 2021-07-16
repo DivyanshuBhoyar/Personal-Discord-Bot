@@ -41,8 +41,8 @@ const languageToolClient = new LanguageToolApi(options);
 let rule = new schedule.RecurrenceRule();
 rule.tz = "Asia/Kolkata";
 rule.second = 00;
-rule.minute = 17;
-rule.hour = 10;
+rule.minute = 00;
+rule.hour = 09;
 // schedule
 schedule.scheduleJob(rule, sendQuotes )
 
