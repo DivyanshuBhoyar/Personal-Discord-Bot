@@ -40,7 +40,7 @@ const languageToolClient = new LanguageToolApi(options);
 
 let rule = new schedule.RecurrenceRule();
 rule.tz = "Asia/Kolkata";
-rule.second = 00;
+rule.second = 11;
 rule.minute = 00;
 rule.hour = 09;
 // schedule
@@ -526,7 +526,7 @@ async function sendEmbeds() {
   }
 }
 
-async function sendQuotes() {
+function sendQuotes() {
 
   axios.get("https://zenquotes.io/api/today").then(response => {
     let quote = response.data[0]
@@ -534,11 +534,11 @@ async function sendQuotes() {
       .setColor("#f5ed00")
       .setTitle(quote["q"])
       .setFooter(`${quote["a"]}`);
-    client.channels.fetch("792301782507585540").then((channel) => {
+        client.channels.fetch("764068934953336833").then((channel) => {
       channel.send(exampleEmbed);
-    });
+    }).catch(e => console.log(e));
     // { quote: 'Hope is but the dream of those wake.' }
-  })
+  }).catch(e => console.log(e))
 }
 //
 //764068934953336833
